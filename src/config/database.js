@@ -11,7 +11,7 @@ const cluster = process.env.MONGO_HOST;
 const dbName = process.env.MONGO_DB_NAME;
 
 // 🟡 Crea la URI de conexión a MongoDB.
-const uri = `${host}${user}:${pass}@${cluster}:{port}/${dbName}`;
+const uri = `${host}${user}:${pass}@${cluster}:${port}/${dbName}`;
 
 const connection = async () => {
   try {
