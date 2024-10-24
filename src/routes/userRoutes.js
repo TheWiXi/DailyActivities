@@ -9,5 +9,6 @@ router.post('/login', userController.iniciarSesion);
 
 // Rutas protegidas (requieren autenticación)
 router.get('/validar-sesion', auth, userController.validarSesion);
+router.get('/', auth, userController.obtenerTodos);
 
 module.exports = router;
