@@ -10,5 +10,8 @@ router.use(auth);
 // Rutas CRUD básicas
 router.post('/', rateLimiter.postLimiter, activityController.crear);
 router.get('/', rateLimiter.getLimiter, activityController.obtenerTodas);
+router.get('/:id', rateLimiter.getLimiter, activityController.obtenerPorId);
+router.put('/:id', rateLimiter.putLimiter, activityController.actualizar);
+
 
 module.exports = router;
