@@ -1,0 +1,10 @@
+###
+POST http://localhost:3000/api/usuarios/registro
+Content-Type: application/json
+
+{
+  "nombre": "William",
+  "apellido": "Meza",
+  "email": "wixi@ejemplo.com",
+  "contrasena": "contraseña123"
+}
