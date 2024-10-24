@@ -9,5 +9,6 @@ const rateLimiter = require('../middlewares/rateLimiter');
 router.use(auth);
 // Rutas CRUD básicas
 router.post('/', rateLimiter.postLimiter, activityController.crear);
+router.get('/', rateLimiter.getLimiter, activityController.obtenerTodas);
 
 module.exports = router;
