@@ -112,7 +112,7 @@ const userController = {
       );
     }
   },
-  
+
   // Obtener todos los usuarios
   async obtenerTodos(req, res) {
     try {
@@ -124,6 +124,26 @@ const userController = {
       logger.error('Error al obtener usuarios:', error);
       res.status(500).json(
         formatResponse(500, 'Error al obtener usuarios')
+      );
+    }
+  },
+  // Obtener usuario por ID
+  async obtenerPorId(req, res) {
+    try {
+      const usuario = await User.findById(req.params.id).select('-contrasena_hash');
+      if (!usuario) {
+        return res.status(404).json(
+          formatResponse(404, 'Usuario no encontrado')
+        );
+      }
+
+      res.json(
+        formatResponse(200, 'Usuario obtenido exitosamente', usuario)
+      );
+    } catch (error) {
+      logger.error('Error al obtener usuario:', error);
+      res.status(500).json(
+        formatResponse(500, 'Error al obtener usuario')
       );
     }
   }
