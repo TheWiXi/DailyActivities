@@ -1,6 +1,6 @@
 const mongoose = require('mongoose');
 
-const tagSchema = new Schema({
+const tagSchema = new mongoose.Schema({
     nombre: {
       type: String,
       required: true,
@@ -11,8 +11,8 @@ const tagSchema = new Schema({
       default: '#000000'
     },
     usuario: {
-      type: Schema.Types.ObjectId,
-      ref: 'Usuario',
+      type: mongoose.Schema.Types.ObjectId,
+      ref: 'User',
       required: true
     }
   }, { timestamps: true });
