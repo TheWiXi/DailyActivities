@@ -65,3 +65,8 @@ Content-Type: application/json
   "categoria": "6709552e100ec33685ed67aa",
   "recordatorio": true
 }
+
+###
+GET http://localhost:3000/api/actividades/
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY3MTk5ZDk1Y2M4ZDBhMGQ1YTRiY2RlNyIsImlhdCI6MTcyOTgwMDg2MywiZXhwIjoxNzI5ODAyNjYzfQ.28EkfAOmrne5eqjwRSKLvbI7uvhnU8XxqZ7U8w9StlE
+Content-Type: application/json
