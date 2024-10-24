@@ -8,3 +8,17 @@ Content-Type: application/json
   "email": "wixi@ejemplo.com",
   "contrasena": "contraseña123"
 }
+
+###
+POST http://localhost:3000/api/usuarios/login
+Content-Type: application/json
+
+{
+  "email": "wixi@ejemplo.com",
+  "contrasena": "contraseña123"
+}
+
+###
+GET http://localhost:3000/api/usuarios/registro 
+Authorization: Bearer {"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY3MTk5YTE3ZjE1NDcwNzNkNTQyNWExYyIsImlhdCI6MTcyOTczMTEwNiwiZXhwIjoxNzI5NzMyOTA2fQ.ak0Ziepkg0DoOxZipv-h8m-KK6A1p0jClJ4FivWrsYw"}
+Content-Type: application/json
