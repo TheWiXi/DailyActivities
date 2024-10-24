@@ -32,3 +32,14 @@ Content-Type: application/json
 GET http://localhost:3000/api/usuarios/67199a17f1547073d5425a1c
 Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY3MTk5YTE3ZjE1NDcwNzNkNTQyNWExYyIsImlhdCI6MTcyOTczMTY3OCwiZXhwIjoxNzI5NzMzNDc4fQ.MVzKqA8MSygGmlBFRV4LbrQqy2eoeThIRJYeqDD4N1c
 Content-Type: application/json
+
+###
+PUT http://localhost:3000/api/usuarios/67199a17f1547073d5425a1c
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY3MTk5YTE3ZjE1NDcwNzNkNTQyNWExYyIsImlhdCI6MTcyOTczMTY3OCwiZXhwIjoxNzI5NzMzNDc4fQ.MVzKqA8MSygGmlBFRV4LbrQqy2eoeThIRJYeqDD4N1c
+Content-Type: application/json
+
+{
+  "nombre": "William1",
+  "apellido": "Meza",
+  "email": "wixi2@ejemplo.com"
+}
