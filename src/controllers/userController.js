@@ -146,6 +146,37 @@ const userController = {
         formatResponse(500, 'Error al obtener usuario')
       );
     }
+  },
+  // Actualizar usuario
+  async actualizar(req, res) {
+    try {
+      const { nombre, apellido, email } = req.body;
+      
+      const usuario = await User.findById(req.params.id);
+      if (!usuario) {
+        return res.status(404).json(
+          formatResponse(404, 'Usuario no encontrado')
+        );
+      }
+
+      usuario.nombre = nombre || usuario.nombre;
+      usuario.apellido = apellido || usuario.apellido;
+      usuario.email = email || usuario.email;
+
+      await usuario.save();
+
+      const usuarioResponse = usuario.toObject();
+      delete usuarioResponse.contrasena_hash;
+
+      res.json(
+        formatResponse(200, 'Usuario actualizado exitosamente', usuarioResponse)
+      );
+    } catch (error) {
+      logger.error('Error al actualizar usuario:', error);
+      res.status(500).json(
+        formatResponse(500, 'Error al actualizar usuario')
+      );
+    }
   }
 };
 
