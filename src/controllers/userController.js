@@ -91,7 +91,7 @@ const userController = {
       );
     }
   },
-  
+
    // Validar sesión
   async validarSesion(req, res) {
     try {
@@ -109,6 +109,21 @@ const userController = {
       logger.error('Error al validar sesión:', error);
       res.status(500).json(
         formatResponse(500, 'Error al validar sesión')
+      );
+    }
+  },
+  
+  // Obtener todos los usuarios
+  async obtenerTodos(req, res) {
+    try {
+      const usuarios = await User.find().select('-contrasena_hash');
+      res.json(
+        formatResponse(200, 'Usuarios obtenidos exitosamente', usuarios)
+      );
+    } catch (error) {
+      logger.error('Error al obtener usuarios:', error);
+      res.status(500).json(
+        formatResponse(500, 'Error al obtener usuarios')
       );
     }
   }
