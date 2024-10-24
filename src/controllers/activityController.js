@@ -93,7 +93,26 @@ const activityController = {
         console.error('Error al actualizar actividad:', error);
         return res.status(500).json(formatResponse( 500, "Error interno del servidor"));
     }
-}
+  },
+  // Eliminar una actividad
+  async eliminar (req, res) {
+    try {
+      const activity = await Activity.findOne({
+        _id: req.params.id,
+        usuario: req.user.id // Solo el creador puede eliminar
+      });
+
+      if (!activity) {
+        return res.status(404).json(formatResponse(404,'Actividad no encontrada o no tienes permisos para eliminarla'));
+    }
+
+      await Activity.findByIdAndDelete(req.params.id);
+
+      res.json(formatResponse( 200,'Actividad eliminada correctamente'));
+    } catch (error) {
+      res.status(500).json(formatResponse( 500,'Error al eliminar la actividad',error.message));
+    }
+  }
 };
 
 module.exports = activityController;

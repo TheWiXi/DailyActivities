@@ -84,3 +84,8 @@ Content-Type: application/json
 {
   "estado": "completada"
 }
+
+###
+DELETE http://localhost:3000/api/actividades/671aa3c98904bc58b4ae5874
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY3MTk5ZDk1Y2M4ZDBhMGQ1YTRiY2RlNyIsImlhdCI6MTcyOTgwMzMxOSwiZXhwIjoxNzI5ODA1MTE5fQ.E44AqYb-AqXx8Sn2CP32QhkfxJ96q3M4UXkXUV6Bkwg
+Content-Type: application/json
