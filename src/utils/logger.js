@@ -6,7 +6,8 @@ const levels = {
   error: 0,
   warn: 1,
   info: 2,
-  http: 3
+  http: 3,
+  debug: 4
 };
 
 // Definir colores para cada nivel
@@ -38,6 +39,12 @@ const format = winston.format.combine(
 const transports = [
   // Logs de consola
   new winston.transports.Console(),
+
+  // Todos los logs en archivo
+  new winston.transports.File({
+    filename: path.join('logs', 'combined.log'),
+    format: winston.format.uncolorize(),
+  }),
   
   // Logs de error en archivo
   new winston.transports.File({
@@ -46,9 +53,10 @@ const transports = [
     format: winston.format.uncolorize(),
   }),
   
-  // Todos los logs en archivo
+  //info logs
   new winston.transports.File({
-    filename: path.join('logs', 'combined.log'),
+    filename: path.join('logs', 'info.log'),
+    level: 'info',
     format: winston.format.uncolorize(),
   }),
   
@@ -62,7 +70,7 @@ const transports = [
 
 // Crear el logger
 const logger = winston.createLogger({
-  level: process.env.NODE_ENV === 'development' ? 'debug' : 'info',
+  level: process.env.NODE_ENV,
   levels,
   format,
   transports,
