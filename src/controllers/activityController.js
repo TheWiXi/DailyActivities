@@ -4,7 +4,6 @@ const { validationResult } = require('express-validator');
 const Category = require('../models/Category');
 const Tag = require('../models/Tag');
 
-
 const activityController = {
   // Crear una nueva actividad
   async crear(req, res) {
@@ -30,27 +29,70 @@ const activityController = {
   },
   // Obtener todas las actividades del usuario
   async obtenerTodas (req, res) {
-    try {
-        const newCategory = new Category();
-        const newtag = new Tag();
-        const actividades = await Activity.find({ usuario: req.user.id })
-            .populate('categoria', 'nombre color')
-            .populate('etiquetas', 'nombre color')
-            .populate('colaboradores', 'nombre apellido email')
-            .sort({ fecha_inicio: -1 });
+        try {
+            const actividades = await Activity.find({ usuario: req.user.id })
+                .populate('categoria', 'nombre color')
+                .populate('etiquetas', 'nombre color')
+                .populate('colaboradores', 'nombre apellido email')
+                .sort({ fecha_inicio: -1 });
 
-        return res.status(200).json({
-            status: 200,
-            message: "Actividades recuperadas exitosamente",
-            data: actividades
-        });
+            return res.status(200).json(formatResponse(200,"Actividades recuperadas exitosamente", actividades));
+        } catch (error) {
+            console.error('Error al obtener actividades:', error);
+            return res.status(500).json(formatResponse( 500, "Error interno del servidor"));
+        }
+    },
+    // Obtener una actividad específica
+    async obtenerPorId (req, res) {
+        try {
+        const activity = await Activity.findOne({
+            _id: req.params.id,
+            $or: [
+            { usuario: req.user.id },
+            { colaboradores: req.user.id }
+            ]
+        }).populate([
+            { path: 'usuario', select: 'nombre email' },
+            { path: 'categoria' },
+            { path: 'etiquetas' },
+            { path: 'colaboradores', select: 'nombre email' }
+        ]);
+
+        if (!activity) {
+            return res.status(404).json(formatResponse(400,'Actividad no encontrada'));
+        }
+
+        res.json(activity);
+        } catch (error) {
+        res.status(500).json(formatResponse(500,'Error al obtener la actividad',error.message));
+        }
+    },
+    // Actualizar una actividad
+    async actualizar (req, res) {
+    try {
+        const errors = validationResult(req);
+        if (!errors.isEmpty()) {
+            return res.status(400).json(formatResponse(400,"Error de validación",errors.array()));
+        }
+
+        const actividad = await Activity.findOneAndUpdate(
+            {
+                _id: req.params.id,
+                usuario: req.user.id
+            },
+            req.body,
+            { new: true }
+        );
+
+        if (!actividad) {
+            return res.status(404).json(formatResponse(404,"Actividad no encontrada"));
+        }
+
+        return res.status(200).json(formatResponse(200,"Actividad actualizada exitosamente",actividad));
     } catch (error) {
-      console.error('Error al obtener actividades:', error);
-      return res.status(500).json({
-          status: 500,
-          message: "Error interno del servidor"
-    });
-  }
+        console.error('Error al actualizar actividad:', error);
+        return res.status(500).json(formatResponse( 500, "Error interno del servidor"));
+    }
 }
 };
 
