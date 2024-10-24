@@ -5,7 +5,7 @@ Content-Type: application/json
 {
   "nombre": "William",
   "apellido": "Meza",
-  "email": "wixi@ejemplo.com",
+  "email": "wixi1@ejemplo.com",
   "contrasena": "contraseña123"
 }
 
@@ -20,5 +20,10 @@ Content-Type: application/json
 
 ###
 GET http://localhost:3000/api/usuarios/validar-sesion 
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY3MTk5YTE3ZjE1NDcwNzNkNTQyNWExYyIsImlhdCI6MTcyOTczMTY3OCwiZXhwIjoxNzI5NzMzNDc4fQ.MVzKqA8MSygGmlBFRV4LbrQqy2eoeThIRJYeqDD4N1c
+Content-Type: application/json
+
+###
+GET http://localhost:3000/api/usuarios/
 Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY3MTk5YTE3ZjE1NDcwNzNkNTQyNWExYyIsImlhdCI6MTcyOTczMTY3OCwiZXhwIjoxNzI5NzMzNDc4fQ.MVzKqA8MSygGmlBFRV4LbrQqy2eoeThIRJYeqDD4N1c
 Content-Type: application/json
