@@ -90,6 +90,27 @@ const userController = {
         formatResponse(500, 'Error en el inicio de sesión')
       );
     }
+  },
+  
+   // Validar sesión
+  async validarSesion(req, res) {
+    try {
+      const usuario = await User.findById(req.user.id).select('-contrasena_hash');
+      if (!usuario) {
+        return res.status(404).json(
+          formatResponse(404, 'Usuario no encontrado')
+        );
+      }
+
+      res.json(
+        formatResponse(200, 'Sesión válida', usuario)
+      );
+    } catch (error) {
+      logger.error('Error al validar sesión:', error);
+      res.status(500).json(
+        formatResponse(500, 'Error al validar sesión')
+      );
+    }
   }
 };
 
