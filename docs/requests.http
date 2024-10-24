@@ -19,6 +19,6 @@ Content-Type: application/json
 }
 
 ###
-GET http://localhost:3000/api/usuarios/registro 
-Authorization: Bearer {"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY3MTk5YTE3ZjE1NDcwNzNkNTQyNWExYyIsImlhdCI6MTcyOTczMTEwNiwiZXhwIjoxNzI5NzMyOTA2fQ.ak0Ziepkg0DoOxZipv-h8m-KK6A1p0jClJ4FivWrsYw"}
+GET http://localhost:3000/api/usuarios/validar-sesion 
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY3MTk5YTE3ZjE1NDcwNzNkNTQyNWExYyIsImlhdCI6MTcyOTczMTY3OCwiZXhwIjoxNzI5NzMzNDc4fQ.MVzKqA8MSygGmlBFRV4LbrQqy2eoeThIRJYeqDD4N1c
 Content-Type: application/json
