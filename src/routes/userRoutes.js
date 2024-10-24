@@ -11,5 +11,6 @@ router.post('/login', userController.iniciarSesion);
 router.get('/validar-sesion', auth, userController.validarSesion);
 router.get('/', auth, userController.obtenerTodos);
 router.get('/:id', auth, userController.obtenerPorId);
+router.put('/:id', auth, userController.actualizar);
 
 module.exports = router;
