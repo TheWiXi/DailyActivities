@@ -8,6 +8,7 @@ const logger = require('./utils/logger');
 process.loadEnvFile();
 //import routes
 const userRoutes = require('./routes/userRoutes');
+const activityRoutes = require('./routes/activityRoutes');
 
 //dbConnection
 connection();
@@ -20,6 +21,7 @@ app.use(logger.expressMiddleware);
 
 // Routes
 app.use('/api/usuarios', userRoutes);
+app.use('/api/actividades', activityRoutes)
 
 //start server
 
