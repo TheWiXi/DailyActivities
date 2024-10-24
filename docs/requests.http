@@ -14,7 +14,7 @@ POST http://localhost:3000/api/usuarios/iniciarSesion
 Content-Type: application/json
 
 {
-  "email": "wixi5@ejemplo.com",
+  "email": "wixi1@ejemplo.com",
   "contrasena": "contraseña123"
 }
 
@@ -46,5 +46,22 @@ Content-Type: application/json
 
 ###
 DELETE http://localhost:3000/api/usuarios/67199a17f1547073d5425a1c
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY3MTk5YTE3ZjE1NDcwNzNkNTQyNWExYyIsImlhdCI6MTcyOTczMTY3OCwiZXhwIjoxNzI5NzMzNDc4fQ.MVzKqA8MSygGmlBFRV4LbrQqy2eoeThIRJYeqDD4N1c
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY3MTk5ZDk1Y2M4ZDBhMGQ1YTRiY2RlNyIsImlhdCI6MTcyOTc5NjkxOSwiZXhwIjoxNzI5Nzk4NzE5fQ.G1RO5ZC9akbQ2pSO4P0tXVI5Ze1-bTPco9uwTbm4KwY
 Content-Type: application/json
+
+###
+POST http://localhost:3000/api/actividades/
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY3MTk5ZDk1Y2M4ZDBhMGQ1YTRiY2RlNyIsImlhdCI6MTcyOTc5ODkwNiwiZXhwIjoxNzI5ODAwNzA2fQ.TW6NKy3W_KGe6lB_htrZot9vxyF8jkqfLG2pM36YBdo
+Content-Type: application/json
+
+{
+  "titulo": "Completar informe mensual",
+  "descripcion": "Preparar el informe de ventas del mes",
+  "fecha_inicio": "2024-01-20T09:00:00Z",
+  "fechaFin": "2024-01-20T17:00:00Z",
+  "duracion_estimada": 30,
+  "prioridad": "alta",
+  "estado": "pendiente",
+  "categoria": "6709552e100ec33685ed67aa",
+  "recordatorio": true
+}
