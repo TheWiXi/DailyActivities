@@ -38,6 +38,58 @@ const userController = {
         formatResponse(500, 'Error al crear usuario')
       );
     }
+  },
+
+  // Iniciar sesión
+  async iniciarSesion(req, res) {
+    try {
+      const { email, contrasena } = req.body;
+
+      const usuario = await User.findOne({ email });
+      if (!usuario) {
+        return res.status(401).json(
+          formatResponse(401, 'Credenciales inválidas')
+        );
+      }
+
+      const esValido = await usuario.compararContrasena(contrasena);
+      if (!esValido) {
+        return res.status(401).json(
+          formatResponse(401, 'Credenciales inválidas')
+        );
+      }
+
+      // Actualizar última sesión
+      usuario.ultima_sesion = new Date();
+      await usuario.save();
+
+      // Crear token
+      const token = jwt.sign(
+        { id: usuario._id },
+        process.env.JWT_SECRET,
+        { expiresIn: '30m' }
+      );
+
+      const usuarioResponse = {
+        id: usuario._id,
+        nombre: usuario.nombre,
+        apellido: usuario.apellido,
+        email: usuario.email,
+        fecha_y_hora_de_inicio_de_sesion: usuario.ultima_sesion
+      };
+
+      res.json(
+        formatResponse(200, 'Inicio de sesión exitoso', {
+          usuario: usuarioResponse,
+          token
+        })
+      );
+    } catch (error) {
+      logger.error('Error en inicio de sesión:', error);
+      res.status(500).json(
+        formatResponse(500, 'Error en el inicio de sesión')
+      );
+    }
   }
 };
 
