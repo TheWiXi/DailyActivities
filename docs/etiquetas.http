@@ -1,0 +1,39 @@
+//*ETIQUETAS
+//CREAR ETIQUETA
+###
+POST http://localhost:3000/api/etiquetas/
+Authorization: Bearer <token>
+Content-Type: application/json
+
+{
+  "nombre": "Urgente",
+  "color": "#FF0000"
+}
+
+//OBTENER TODAS
+###
+GET http://localhost:3000/api/etiquetas/
+Authorization: Bearer <token>
+Content-Type: application/json
+
+//OBTENER POR ID
+###
+GET http://localhost:3000/api/etiquetas/<id>
+Authorization: Bearer <token>
+Content-Type: application/json
+
+//ACTUALIZAR
+###
+PUT http://localhost:3000/api/etiquetas/<id>
+Authorization: Bearer <token>
+Content-Type: application/json
+
+{
+  "color": "#00FF00"
+}
+
+//ELIMINAR
+###
+DELETE http://localhost:3000/api/etiquetas/<id>
+Authorization: Bearer <token>
+Content-Type: application/json

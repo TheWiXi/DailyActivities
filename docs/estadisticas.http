@@ -1,0 +1,47 @@
+//*ESTADISTICAS
+//CREAR
+###
+POST http://localhost:3000/api/estadisticas/
+Authorization: Bearer <token>
+Content-Type: application/json
+
+{
+  "fecha": "2024-01-20T00:00:00Z",
+  "actividades_completadas": 5,
+  "objetivos_completados": 3,
+  "tiempo_total_actividades": 120,
+  "distribucion_categorias": [
+    {
+      "categoria": "6709552e100ec33685ed67ab",
+      "tiempo_dedicado": 60
+    }
+  ]
+}
+
+//OBTENER TODAS
+###
+GET http://localhost:3000/api/estadisticas/
+Authorization: Bearer <token>
+Content-Type: application/json
+
+//OBTENER POR ID
+###
+GET http://localhost:3000/api/estadisticas/<id>
+Authorization: Bearer <token>
+Content-Type: application/json
+
+//ACTUALIZAR
+###
+PUT http://localhost:3000/api/estadisticas/<id>
+Authorization: Bearer <token>
+Content-Type: application/json
+
+{
+  "actividades_completadas": 6
+}
+
+//ELIMINAR
+###
+DELETE http://localhost:3000/api/estadisticas/<id>
+Authorization: Bearer <token>
+Content-Type: application/json

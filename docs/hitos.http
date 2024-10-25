@@ -1,0 +1,43 @@
+//*HITOS
+//CREAR
+###
+POST http://localhost:3000/api/hitos/
+Authorization: Bearer <token>
+Content-Type: application/json
+
+{
+  "objetivo": "6709552e100ec33685ed67aa",
+  "titulo": "Lanzar nueva versión",
+  "descripcion": "Completar el lanzamiento de la nueva versión del producto.",
+  "fecha_objetivo": "2024-12-31T00:00:00Z",
+  "estado": "pendiente",
+  "orden": 1
+}
+
+//OBTENER TODOS
+###
+GET http://localhost:3000/api/hitos/
+Authorization: Bearer <token>
+Content-Type: application/json
+
+//OBTENER POR ID
+###
+GET http://localhost:3000/api/hitos/<id>
+Authorization: Bearer <token>
+Content-Type: application/json
+
+//ACTUALIZAR
+###
+PUT http://localhost:3000/api/hitos/<id>
+Authorization: Bearer <token>
+Content-Type: application/json
+
+{
+  "estado": "completado"
+}
+
+//ELIMINAR
+###
+DELETE http://localhost:3000/api/hitos/<id>
+Authorization: Bearer <token>
+Content-Type: application/json

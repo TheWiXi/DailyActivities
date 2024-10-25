@@ -1,0 +1,44 @@
+//*ACTIVIDADES
+//CREAR ACTIVIDAD
+###
+POST http://localhost:3000/api/actividades/
+Authorization: Bearer <token>
+Content-Type: application/json
+
+{
+  "titulo": "Completar informe mensual",
+  "descripcion": "Preparar el informe de ventas del mes",
+  "fecha_inicio": "2024-01-20T09:00:00Z",
+  "fechaFin": "2024-01-20T17:00:00Z",
+  "duracion_estimada": 30,
+  "prioridad": "alta",
+  "estado": "pendiente",
+  "categoria": "6709552e100ec33685ed67aa",
+  "recordatorio": true
+}
+
+//OBTENER ACTIVIDADES DEL USUARIO
+###
+GET http://localhost:3000/api/actividades/
+Authorization: Bearer <token>
+Content-Type: application/json
+
+//OBTENER ACTIVIDAD POR ID
+###
+GET http://localhost:3000/api/actividades/<id>
+Authorization: Bearer <token>
+
+//ACTUALIZAR ACTIVIDAD
+###
+PUT http://localhost:3000/api/actividades/<id>
+Authorization: Bearer <token>
+Content-Type: application/json
+
+{
+  "estado": "completada"
+}
+
+//ELIMINAR ACTIVIDAD 
+###
+DELETE http://localhost:3000/api/actividades/<id>
+Authorization: Bearer <token>

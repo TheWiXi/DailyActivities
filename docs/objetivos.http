@@ -1,0 +1,44 @@
+//*OBJETIVOS
+//CREAR OBJETIVO
+###
+POST http://localhost:3000/api/objetivos/
+Authorization: Bearer <token>
+Content-Type: application/json
+
+{
+  "titulo": "Aprender Node.js",
+  "descripcion": "Completar el curso de Node.js en línea.",
+  "fechaFin": "2024-12-31",
+  "hitos": []
+}
+
+//OBTENER TODOS LOS OBJETIVOS
+###
+GET http://localhost:3000/api/objetivos/
+Authorization: Bearer <token>
+Content-Type: application/json
+
+//OBTENER OBJETIVO POR ID
+###
+GET http://localhost:3000/api/objetivos/<id>
+Authorization: Bearer <token>
+Content-Type: application/json
+
+//ACTUALIZAR OBJETIVO
+###
+PUT http://localhost:3000/api/objetivos/<id>
+Authorization: Bearer <token>
+Content-Type: application/json
+
+{
+  "titulo": "Aprender Node.js y Express",
+  "descripcion": "Completar el curso de Node.js y Express en línea.",
+  "fechaFin": "2025-01-31",
+  "progreso": 50
+}
+
+//ELIMINAR OBJETIVO
+###
+DELETE http://localhost:3000/api/objetivos/<id>
+Authorization: Bearer <token>
+Content-Type: application/json

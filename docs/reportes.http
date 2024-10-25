@@ -1,0 +1,62 @@
+//*REPORTES
+//CREAR REPORTE
+###
+POST http://localhost:3000/api/reportes/
+Authorization: Bearer <token>
+Content-Type: application/json
+
+{
+  "usuario": "637199d95cc8d0a0d9e7ab56", 
+  "tipo": "mensual",
+  "fecha_inicio": "2024-01-01",
+  "fecha_fin": "2024-01-31",
+  "resumen": {
+    "actividades_totales": 20,
+    "actividades_completadas": 15,
+    "objetivos_alcanzados": 3,
+    "tiempo_total_dedicado": 450,
+    "categoria_mas_trabajada": "637199d95cc8d0a0d9e7ab57" 
+  },
+  "detalles": {
+    "actividades": [
+      "637199d95cc8d0a0d9e7ab58", 
+      "637199d95cc8d0a0d9e7ab59"
+    ],
+    "objetivos": [
+      "637199d95cc8d0a0d9e7ab60" 
+    ]
+  }
+}
+
+//OBTENER TODOS LOS REPORTES
+###
+GET http://localhost:3000/api/reportes/
+Authorization: Bearer <token>
+Content-Type: application/json
+
+//OBTENER REPORTE POR ID
+###
+GET http://localhost:3000/api/reportes/<id>
+Authorization: Bearer <token>
+Content-Type: application/json
+
+//ACTUALIZAR REPORTE
+###
+PUT http://localhost:3000/api/reportes/<id>
+Authorization: Bearer <token>
+Content-Type: application/json
+
+{
+  "resumen": {
+    "actividades_totales": 25,
+    "actividades_completadas": 20,
+    "objetivos_alcanzados": 4,
+    "tiempo_total_dedicado": 500
+  }
+}
+
+//ELIMINAR REPORTE
+###
+DELETE http://localhost:3000/api/reportes/<id>
+Authorization: Bearer <token>
+Content-Type: application/json

@@ -1,0 +1,40 @@
+//*CATEGORIAS
+//CREAR CATEGORIA
+###
+POST http://localhost:3000/api/categorias/
+Authorization: Bearer <token>
+Content-Type: application/json
+
+{
+  "nombre": "Trabajo",
+  "descripcion": "Tareas relacionadas con el trabajo",
+  "color": "#FF5733"
+}
+
+//OBTENER CATEGORIAS DEL USUARIO
+###
+GET http://localhost:3000/api/categorias/
+Authorization: Bearer <token>
+Content-Type: application/json
+
+//OBTENER CATEGORIA POR ID
+###
+GET http://localhost:3000/api/categorias/<id>
+Authorization: Bearer <token>
+Content-Type: application/json
+
+//ACTUALIZAR CATEGORIA
+###
+PUT http://localhost:3000/api/categorias/<id>
+Authorization: Bearer <token>
+Content-Type: application/json
+
+{
+  "descripcion": "Actualización de tareas laborales"
+}
+
+//ELIMINAR UNA CATEGORIA
+###
+DELETE http://localhost:3000/api/categorias/<id>
+Authorization: Bearer <token>
+Content-Type: application/json

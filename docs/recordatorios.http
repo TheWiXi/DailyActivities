@@ -1,0 +1,43 @@
+//*RECORDATORIOS
+//CREAR RECORDATORIO
+###
+POST http://localhost:3000/api/recordatorios/
+Authorization: Bearer <token>
+Content-Type: application/json
+
+{
+  "actividad": "637199d95cc8d0a0d9e7ab58",  
+  "fecha_recordatorio": "2024-01-01T10:00:00Z",
+  "mensaje": "Reunión con el equipo a las 10 AM"
+}
+
+//OBTENER TODOS LOS RECORDATORIOS
+###
+GET http://localhost:3000/api/recordatorios/
+Authorization: Bearer <token>
+Content-Type: application/json
+
+//OBTENER RECORDATORIO POR ID
+###
+GET http://localhost:3000/api/recordatorios/<id>
+Authorization: Bearer <token>
+Content-Type: application/json
+
+//ACTUALIZAR RECORDATORIO
+###
+PUT http://localhost:3000/api/recordatorios/<id>
+Authorization: Bearer <token>
+Content-Type: application/json
+
+{
+  "actividad": "637199d95cc8d0a0d9e7ab58",  
+  "fecha_recordatorio": "2024-02-01T09:00:00Z",
+  "mensaje": "Revisar progreso de objetivos y actividades",
+  "estado": "pendiente"  
+}
+
+//ELIMINAR RECORDATORIO
+###
+DELETE http://localhost:3000/api/recordatorios/<id>
+Authorization: Bearer <token>
+Content-Type: application/json

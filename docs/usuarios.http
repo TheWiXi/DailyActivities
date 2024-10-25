@@ -1,0 +1,58 @@
+//*USUARIOS
+//CREAR
+###
+POST http://localhost:3000/api/usuarios/
+Content-Type: application/json
+
+{
+  "nombre": "William",
+  "apellido": "Meza",
+  "email": "wixi1@ejemplo.com",
+  "contrasena": "contraseña123"
+}
+
+//INICIAR SESION
+###
+POST http://localhost:3000/api/usuarios/iniciarSesion
+Content-Type: application/json
+
+{
+  "email": "wixi1@ejemplo.com",
+  "contrasena": "contraseña123"
+}
+
+//VALIDAR SESION
+###
+GET http://localhost:3000/api/usuarios/validarSesion 
+Authorization: Bearer <token>
+Content-Type: application/json
+
+//OBTENER TODOS LOS USUARIOS
+###
+GET http://localhost:3000/api/usuarios/
+Authorization: Bearer <token>
+Content-Type: application/json
+
+//OBTENER USUARIO POR ID
+###
+GET http://localhost:3000/api/usuarios/<id>
+Authorization: Bearer <token>
+Content-Type: application/json
+
+//ACTUALIZAR USUARIO
+###
+PUT http://localhost:3000/api/usuarios/<id>
+Authorization: Bearer <token>
+Content-Type: application/json
+
+{
+  "nombre": "William1",
+  "apellido": "Meza",
+  "email": "wixi2@ejemplo.com"
+}
+
+//ELIMINAR USUARIO POR ID
+###
+DELETE http://localhost:3000/api/usuarios/<id>
+Authorization: Bearer <token>
+Content-Type: application/json
