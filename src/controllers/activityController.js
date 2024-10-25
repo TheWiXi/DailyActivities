@@ -1,8 +1,6 @@
 const Activity = require('../models/Activity');
 const { formatResponse } = require('../utils/responseFormatter');
 const { validationResult } = require('express-validator');
-const Category = require('../models/Category');
-const Tag = require('../models/Tag');
 
 const activityController = {
   // Crear una nueva actividad
