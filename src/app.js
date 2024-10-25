@@ -7,8 +7,16 @@ const logger = require('./utils/logger');
 //load envs
 process.loadEnvFile();
 //import routes
-const userRoutes = require('./routes/userRoutes');
 const activityRoutes = require('./routes/activityRoutes');
+const categoryRoutes = require("./routes/categoryRoutes");
+const goalRoutes = require("./routes/goalRoutes");
+const milestoneRoutes = require("./routes/milestoneRoutes");
+const reminderRoutes = require("./routes/reminderRoutes");
+const reportRoutes = require("./routes/reportRoutes");
+const statisticRoutes = require("./routes/statisticRoutes");
+const tagRoutes = require("./routes/tagRoutes");
+const userRoutes = require('./routes/userRoutes');
+
 
 //dbConnection
 connection();
@@ -20,8 +28,16 @@ app.use(express.json());
 app.use(logger.expressMiddleware);
 
 // Routes
+app.use('/api/actividades', activityRoutes);
+app.use("/api/categorias", categoryRoutes);
+app.use('/api/objetivos', goalRoutes);
+app.use('/api/hitos', milestoneRoutes);
+app.use('/api/recordatorios', reminderRoutes);
+app.use("/api/reportes", reportRoutes);
+app.use("/api/estadisticas", statisticRoutes);
+app.use("/api/etiquetas", tagRoutes);
 app.use('/api/usuarios', userRoutes);
-app.use('/api/actividades', activityRoutes)
+
 
 //start server
 
